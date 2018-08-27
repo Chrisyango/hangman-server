@@ -3,9 +3,9 @@
 const mongoose = require('mongoose');
 
 const { DATABASE_URL } = require('../config');
-const User = require('../models/user');
+const Words = require('../models/words');
 
-const seedUsers = require('../db/users');
+const seedWords = require('../db/words');
 
 mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
   .then(() => {
@@ -15,9 +15,9 @@ mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
       });
   })
   .then(() => {
-    return User.insertMany(seedUsers)
+    return Words.insertMany(seedWords)
       .then(results => {
-        console.info(`Inserted ${results.length} Users`);
+        console.info(`Inserted ${results.length} Words`);
       });
   })
   .then(() => {

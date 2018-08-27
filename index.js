@@ -10,11 +10,8 @@ const passport = require('passport');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
-const jwtStrategy = require('./passport/jwt');
-const localStrategy = require('./passport/local');
 
-const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth');
+const wordsRouter = require('./routes/words');
 
 const app = express();
 
@@ -30,11 +27,8 @@ app.use(
   })
 );
 
-app.use('/api', usersRouter);
-app.use('/api', authRouter);
+app.use('/api', wordsRouter);
 
-passport.use(localStrategy);
-passport.use(jwtStrategy);
 app.use(passport.authenticate('jwt',
   {session: false, failWithError: true})
 );
