@@ -17,16 +17,4 @@ router.get('/words', bodyParser, (req, res, next) => {
     });
 });
 
-/* ========== GET/READ AN ITEM BY ID ========== */
-// router.get('/users/:id', bodyParser, (req, res, next) => {
-//   const {id} = req.params;
-//   User.findById({_id: id})
-//     .then(results => {
-//       res.json(results);
-//     })
-//     .catch(err => {
-//       next(err);
-//     });
-// });
-
 module.exports = router;
